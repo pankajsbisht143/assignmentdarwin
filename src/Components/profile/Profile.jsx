@@ -4,7 +4,7 @@ import UserCard from "./UserCard";
 import BadgeModel from "./BadgeModel";
 
 const Profile = () => {
-    const [userData,setuserData]= useState({
+    const [userHist,setuserHist]= useState({
         name:null,
         profileurl:null,
         rank:null,
@@ -47,7 +47,7 @@ const Profile = () => {
             );
     
             const data = await Promise.all(responses.map(response => response.json()));
-            setuserData({...userData, name:data[0].data.name,profileurl:data[0].data.imageUrl,points:data[1].data, level:data[1].tier,rank:data[2].data.position,pointsHistory:data[3].data,badgesData:data[4].data })
+            setuserHist({...userHist, name:data[0].data.name,profileurl:data[0].data.imageUrl,points:data[1].data, level:data[1].tier,rank:data[2].data.position,pointsHistory:data[3].data,badgesData:data[4].data })
             
           } catch (error) {
             console.error("Error fetching data:", error);
@@ -72,7 +72,7 @@ const Profile = () => {
         </h2>
       </div>
 
-      <UserCard userData={userData} setClickBadge={setClickBadge} setShowmodel={setShowmodel} />
+      <UserCard userHist={userHist} setClickBadge={setClickBadge} setShowmodel={setShowmodel} />
       {
         showmodel && <BadgeModel  badge={clickedBadge}  setShowmodel={setShowmodel} />
       }

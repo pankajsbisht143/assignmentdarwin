@@ -1,15 +1,15 @@
 import React from 'react'
 
-const Badges = ({userData,setClickBadge,setShowmodel}) => {
+const Badges = ({userHist,setClickBadge,setShowmodel}) => {
   
   return (
-    <div className=' grid grid-cols-3 gap-1  overflow-y-scroll h-[180px] 'style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+    <div className=' grid grid-cols-3 gap-1  overflow-y-scroll h-[180px] '>
 
     {
-        userData?.badgesData?.map((elm)=>
-        <img src={elm.imageUrl}  width="60%" className='m-auto cursor-pointer' onClick={()=> {
+        userHist?.badgesData?.map((elem)=>
+        <img src={elem.imageUrl}  width="60%" className='m-auto cursor-pointer' onClick={()=> {
             
-            setClickBadge(elm)
+            setClickBadge(elem)
             setShowmodel(true)
         }}/>
         )
