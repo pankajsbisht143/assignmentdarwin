@@ -18,6 +18,7 @@ const UserCard = ({ userHist,setClickBadge,setShowmodel}) => {
         />
       </div>
 
+
 <div className="absolute top-2 w-full">
       <h2 className=" text-xl text-center font-bold mt-10">{userHist?.name}</h2>
 
